@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attock Property — Attock Ki Ek Number Property Website</title>
+  <meta name="description" content="Attock mein ghar, plot, dukaan khareedein, bechein ya kiraye par lein. Trusted agents, patwari services, aur real estate guides. Attock Property pe sab kuch milega." />
+  <meta name="keywords" content="Attock property, Attock ghar, Attock plot, Attock real estate, zameen Attock, property for sale Attock" />
+  <link rel="canonical" href="https://attockproperty.netlify.app/" />
+
+  <!-- OG Tags -->
+  <meta property="og:title" content="Attock Property — Attock Ka Trusted Property Portal" />
+  <meta property="og:description" content="Ghar, plot, dukaan — khareedein, bechein, kiraye par lein. Attock ka sab se trusted property portal." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- WhatsApp Float -->
+  <a id="wa-float" class="whatsapp-float" href="#" title="WhatsApp pe rabta karein" aria-label="WhatsApp">
+    💬
+  </a>
+
+  <!-- Toast -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ═══ NAVIGATION ══════════════════════════ -->
+  <header>
+    <nav id="main-nav" class="nav">
+      <div class="nav-inner">
+
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon">🏠</div>
+          <span class="nav-logo-text">Attock <span>Property</span></span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="pages/properties.html" class="nav-link">Properties</a></li>
+          <li><a href="pages/patwari.html" class="nav-link">Patwari Services</a></li>
+          <li><a href="pages/guides.html" class="nav-link">Knowledge Base</a></li>
+          <li><a href="pages/agents.html" class="nav-link">Agents</a></li>
+          <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="pages/submit-listing.html" class="btn btn-gold btn-sm" style="display:none" id="nav-list-btn">
+            + List Property
+          </a>
+          <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="pages/properties.html" class="nav-link">🏘️ Properties</a>
+      <a href="pages/patwari.html" class="nav-link">📜 Patwari Services</a>
+      <a href="pages/guides.html" class="nav-link">📚 Knowledge Base</a>
+      <a href="pages/agents.html" class="nav-link">👔 Agents</a>
+      <a href="pages/contact.html" class="nav-link">📞 Contact</a>
+      <div style="margin-top:1rem">
+        <a href="pages/submit-listing.html" class="btn btn-gold" style="width:100%;justify-content:center">
+          + Apni Property List Karein
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-pattern"></div>
+
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-grid">
+
+            <!-- Left: Text -->
+            <div class="hero-left">
+              <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span class="label" style="color:var(--gold);font-size:0.68rem">Attock Ka #1 Property Portal</span>
+              </div>
+
+              <h1 class="hero-title">
+                Attock Mein<br>
+                <span class="gold">Apna Ghar</span><br>
+                <span class="underline-gold">Dhoondhein</span>
+              </h1>
+
+              <p class="hero-desc">
+                Ghar, plot, dukaan — khareedein, bechein ya kiraye par lein.
+                Trusted agents, patwari services, aur real estate guides —
+                sab kuch ek jagah.
+                <br><span style="color:rgba(255,255,255,0.4);font-size:0.85rem">اٹک میں پراپرٹی کا سب سے بڑا پورٹل</span>
+              </p>
+
+              <div class="hero-actions">
+                <a href="pages/properties.html" class="btn btn-gold btn-lg">
+                  Properties Dekhein 🏠
+                </a>
+                <a href="#" class="btn btn-white btn-lg" data-wa="listing">
+                  Property List Karein
+                </a>
+              </div>
+
+              <div class="hero-trust">
+                <div class="hero-trust-item">
+                  <span>✅</span> Verified Listings
+                </div>
+                <div class="hero-trust-item">
+                  <span>🔒</span> Safe Transaction
+                </div>
+                <div class="hero-trust-item">
+                  <span>⚡</span> Fast Response
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Search Box -->
+            <div style="animation:floatUp 0.7s 0.3s ease both;opacity:0">
+              <div class="hero-search-box">
+
+                <form id="search-form">
+                  <!-- Tabs -->
+                  <div class="search-tabs" role="tablist">
+                    <button type="button" class="search-tab active" data-type="buy" role="tab">
+                      🏠 Khareedein
+                    </button>
+                    <button type="button" class="search-tab" data-type="rent" role="tab">
+                      🔑 Kiraye
+                    </button>
+                    <button type="button" class="search-tab" data-type="sell" role="tab">
+                      💰 Bechein
+                    </button>
+                  </div>
+
+                  <!-- Fields -->
+                  <div class="search-fields">
+                    <div class="search-field">
+                      <label for="search-area">Area / Ilaaqa</label>
+                      <select id="search-area">
+                        <option value="">Sab Areas</option>
+                        <option value="attock-city">Attock City</option>
+                        <option value="hassanabdal">Hassan Abdal</option>
+                        <option value="hazro">Hazro</option>
+                        <option value="fateh-jang">Fateh Jang</option>
+                        <option value="pindigheb">Pindi Gheb</option>
+                        <option value="jand">Jand</option>
+                        <option value="fatehjang-road">Fatehjang Road</option>
+                        <option value="maqam">Maqam</option>
+                      </select>
+                    </div>
+                    <div class="search-field">
+                      <label for="search-proptype">Property Type</label>
+                      <select id="search-proptype">
+                        <option value="">Sab Types</option>
+                        <option value="house">Ghar / House</option>
+                        <option value="plot">Plot / Zameen</option>
+                        <option value="apartment">Apartment / Flat</option>
+                        <option value="shop">Dukaan / Shop</option>
+                        <option value="office">Office</option>
+                        <option value="agricultural">Zara'at Zameen</option>
+                      </select>
+                    </div>
+                    <div class="search-field">
+                      <label for="search-price">Budget</label>
+                      <select id="search-price">
+                        <option value="">Koi bhi Price</option>
+                        <option value="0-2000000">20 Lakh tak</option>
+                        <option value="2000000-5000000">20-50 Lakh</option>
+                        <option value="5000000-10000000">50 Lakh - 1 Crore</option>
+                        <option value="10000000-30000000">1-3 Crore</option>
+                        <option value="30000000+">3 Crore se zyada</option>
+                      </select>
+                    </div>
+                    <div class="search-field">
+                      <label for="search-beds">Kamre / Marla</label>
+                      <select id="search-beds">
+                        <option value="">Koi bhi</option>
+                        <option value="2">2 Kamre</option>
+                        <option value="3">3 Kamre</option>
+                        <option value="4">4+ Kamre</option>
+                        <option value="3m">3 Marla</option>
+                        <option value="5m">5 Marla</option>
+                        <option value="10m">10 Marla</option>
+                        <option value="1k">1 Kanal</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-navy" style="width:100%;justify-content:center">
+                    🔍 Search Karein
+                  </button>
+                </form>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                  <div class="hero-stat">
+                    <div class="hero-stat-num" data-count="120" data-suffix="+">120+</div>
+                    <div class="hero-stat-label">Listings</div>
+                  </div>
+                  <div class="hero-stat">
+                    <div class="hero-stat-num" data-count="15" data-suffix="+">15+</div>
+                    <div class="hero-stat-label">Agents</div>
+                  </div>
+                  <div class="hero-stat">
+                    <div class="hero-stat-num" data-count="500" data-suffix="+">500+</div>
+                    <div class="hero-stat-label">Khush Grahak</div>
+                  </div>
+                </div>
+
+              </div>
+            </div><!-- /right -->
+
+          </div><!-- /hero-grid -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVICES ════════════════════════════ -->
+    <section class="section" style="background:var(--white)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="label">Hamaari Services</p>
+          <h2 class="heading-lg">Hum Kya Karte Hain?</h2>
+          <div class="gold-divider"></div>
+          <p style="color:var(--text-mid);margin-top:0.75rem">Attock mein property ka har kaam hamare saath karein — safe, fast, aur trusted</p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-icon service-icon-1">🏘️</div>
+            <h3 class="service-title">Property Listings</h3>
+            <p class="service-desc">
+              Ghar, plot, dukaan — khareedein, bechein, ya kiraye par lein.
+              Verified listings with photos, price, aur location.
+            </p>
+            <span class="service-price">Free Browsing | Paid Listing</span>
+            <br>
+            <a href="pages/properties.html" class="btn btn-navy btn-sm">Properties Dekhein →</a>
+          </div>
+
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-icon service-icon-2">📜</div>
+            <h3 class="service-title">Patwari Services</h3>
+            <p class="service-desc">
+              Fard nikalna, intiqal, registry, zameen verification —
+              hamare trusted patwari network se karwayein aasaani se.
+            </p>
+            <span class="service-price">Rs. 1,000 se shuru</span>
+            <br>
+            <a href="pages/patwari.html" class="btn btn-navy btn-sm">Service Lein →</a>
+          </div>
+
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-icon service-icon-3">📚</div>
+            <h3 class="service-title">Knowledge Base</h3>
+            <p class="service-desc">
+              Property ka har kaam ka roadmap — fard se lekar registry tak,
+              fraud se bachao, loan process — sab kuch Urdu mein.
+            </p>
+            <span class="service-price">Rs. 200 se shuru</span>
+            <br>
+            <a href="pages/guides.html" class="btn btn-navy btn-sm">Guides Dekhein →</a>
+          </div>
+
+          <div class="service-card reveal reveal-delay-4">
+            <div class="service-icon service-icon-4">👔</div>
+            <h3 class="service-title">Trusted Agents</h3>
+            <p class="service-desc">
+              Attock ke best verified agents hamare saath hain.
+              Apni property ke liye sahi agent dhoondhein aur
+              seedha contact karein.
+            </p>
+            <span class="service-price">Free Contact</span>
+            <br>
+            <a href="pages/agents.html" class="btn btn-navy btn-sm">Agents Dekhein →</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURED PROPERTIES ════════════════ -->
+    <section class="section" style="background:var(--cream)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="label">Featured Properties</p>
+          <h2 class="heading-lg">Behtareen Properties</h2>
+          <div class="gold-divider"></div>
+          <p style="color:var(--text-mid);margin-top:0.75rem">Attock ke top verified listings — abhi dastiyaab</p>
+        </div>
+
+        <div class="demo-notice">
+          ⚠️ Yeh Demo Listings Hain — Asli listings jald aa rahe hain! | Real listings ke liye WhatsApp karein
+        </div>
+
+        <div class="properties-grid">
+
+          <!-- Property 1 -->
+          <article class="property-card reveal reveal-delay-1">
+            <div class="property-img">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80"
+                   alt="5 Marla House in Attock City" loading="lazy" />
+              <div class="property-badges">
+                <span class="badge badge-sale">For Sale</span>
+                <span class="badge badge-featured">⭐ Featured</span>
+              </div>
+              <button class="property-save" data-id="prop-1" aria-label="Save property">🤍</button>
+              <div style="position:absolute;bottom:8px;right:8px">
+                <span class="badge badge-demo">DEMO</span>
+              </div>
+            </div>
+            <div class="property-body">
+              <div class="property-price">
+                Rs. 85 Lakh
+                <div class="property-price-sub">Negotiable</div>
+              </div>
+              <h3 class="property-title">5 Marla Ghar — Attock City, Main Road ke Qareeb</h3>
+              <div class="property-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Attock City, Attock
+              </div>
+              <div class="property-features">
+                <span class="property-feature">🛏️ 3 Kamre</span>
+                <span class="property-feature">🚿 2 Baths</span>
+                <span class="property-feature">📐 5 Marla</span>
+              </div>
+            </div>
+            <div class="property-footer">
+              <span style="font-size:0.75rem;color:var(--text-light)">3 din pehle add hua</span>
+              <button class="btn btn-whatsapp btn-sm" data-wa="property"
+                      data-title="5 Marla Ghar — Attock City">
+                💬 Inquiry
+              </button>
+            </div>
+          </article>
+
+          <!-- Property 2 -->
+          <article class="property-card reveal reveal-delay-2">
+            <div class="property-img">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80"
+                   alt="10 Marla Plot Hassan Abdal" loading="lazy" />
+              <div class="property-badges">
+                <span class="badge badge-sale">For Sale</span>
+              </div>
+              <button class="property-save" data-id="prop-2" aria-label="Save property">🤍</button>
+              <div style="position:absolute;bottom:8px;right:8px">
+                <span class="badge badge-demo">DEMO</span>
+              </div>
+            </div>
+            <div class="property-body">
+              <div class="property-price">
+                Rs. 45 Lakh
+                <div class="property-price-sub">Final Price</div>
+              </div>
+              <h3 class="property-title">10 Marla Residential Plot — Hassan Abdal, Approved Society</h3>
+              <div class="property-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Hassan Abdal, Attock
+              </div>
+              <div class="property-features">
+                <span class="property-feature">📐 10 Marla</span>
+                <span class="property-feature">✅ Approved</span>
+                <span class="property-feature">🛣️ 40ft Road</span>
+              </div>
+            </div>
+            <div class="property-footer">
+              <span style="font-size:0.75rem;color:var(--text-light)">1 hafte pehle</span>
+              <button class="btn btn-whatsapp btn-sm" data-wa="property"
+                      data-title="10 Marla Plot Hassan Abdal">
+                💬 Inquiry
+              </button>
+            </div>
+          </article>
+
+          <!-- Property 3 -->
+          <article class="property-card reveal reveal-delay-3">
+            <div class="property-img">
+              <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80"
+                   alt="3 Marla House for Rent Hazro" loading="lazy" />
+              <div class="property-badges">
+                <span class="badge badge-rent">For Rent</span>
+                <span class="badge badge-featured">⭐ Featured</span>
+              </div>
+              <button class="property-save" data-id="prop-3" aria-label="Save property">🤍</button>
+              <div style="position:absolute;bottom:8px;right:8px">
+                <span class="badge badge-demo">DEMO</span>
+              </div>
+            </div>
+            <div class="property-body">
+              <div class="property-price">
+                Rs. 18,000 / Mah
+                <div class="property-price-sub">2 Mahine Advance</div>
+              </div>
+              <h3 class="property-title">3 Marla Double Storey House — Hazro, Quiet Mohalla</h3>
+              <div class="property-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Hazro, Attock
+              </div>
+              <div class="property-features">
+                <span class="property-feature">🛏️ 2 Kamre</span>
+                <span class="property-feature">🚿 1 Bath</span>
+                <span class="property-feature">📐 3 Marla</span>
+              </div>
+            </div>
+            <div class="property-footer">
+              <span style="font-size:0.75rem;color:var(--text-light)">Aaj add hua</span>
+              <button class="btn btn-whatsapp btn-sm" data-wa="property"
+                      data-title="3 Marla House for Rent Hazro">
+                💬 Inquiry
+              </button>
+            </div>
+          </article>
+
+          <!-- Property 4 -->
+          <article class="property-card reveal reveal-delay-1">
+            <div class="property-img">
+              <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80"
+                   alt="Shop for Sale Fateh Jang" loading="lazy" />
+              <div class="property-badges">
+                <span class="badge badge-sale">For Sale</span>
+              </div>
+              <button class="property-save" data-id="prop-4" aria-label="Save property">🤍</button>
+              <div style="position:absolute;bottom:8px;right:8px">
+                <span class="badge badge-demo">DEMO</span>
+              </div>
+            </div>
+            <div class="property-body">
+              <div class="property-price">
+                Rs. 25 Lakh
+                <div class="property-price-sub">Slightly Negotiable</div>
+              </div>
+              <h3 class="property-title">Corner Dukaan / Shop — Fateh Jang, Main Bazar</h3>
+              <div class="property-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Fateh Jang, Attock
+              </div>
+              <div class="property-features">
+                <span class="property-feature">🏪 200 sqft</span>
+                <span class="property-feature">🅿️ Parking</span>
+                <span class="property-feature">💧 Utilities</span>
+              </div>
+            </div>
+            <div class="property-footer">
+              <span style="font-size:0.75rem;color:var(--text-light)">5 din pehle</span>
+              <button class="btn btn-whatsapp btn-sm" data-wa="property"
+                      data-title="Corner Shop Fateh Jang">
+                💬 Inquiry
+              </button>
+            </div>
+          </article>
+
+          <!-- Property 5 -->
+          <article class="property-card reveal reveal-delay-2">
+            <div class="property-img">
+              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80"
+                   alt="Agricultural Land Pindi Gheb" loading="lazy" />
+              <div class="property-badges">
+                <span class="badge badge-sale">For Sale</span>
+              </div>
+              <button class="property-save" data-id="prop-5" aria-label="Save property">🤍</button>
+              <div style="position:absolute;bottom:8px;right:8px">
+                <span class="badge badge-demo">DEMO</span>
+              </div>
+            </div>
+            <div class="property-body">
+              <div class="property-price">
+                Rs. 1.2 Crore
+                <div class="property-price-sub">Negotiable</div>
+              </div>
+              <h3 class="property-title">5 Kanal Zara'at Zameen — Pindi Gheb, Tube Well Maujood</h3>
+              <div class="property-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Pindi Gheb, Attock
+              </div>
+              <div class="property-features">
+                <span class="property-feature">📐 5 Kanal</span>
+                <span class="property-feature">💧 Tube Well</span>
+                <span class="property-feature">🚗 Road Access</span>
+              </div>
+            </div>
+            <div class="property-footer">
+              <span style="font-size:0.75rem;color:var(--text-light)">2 hafte pehle</span>
+              <button class="btn btn-whatsapp btn-sm" data-wa="property"
+                      data-title="5 Kanal Zameen Pindi Gheb">
+                💬 Inquiry
+              </button>
+            </div>
+          </article>
+
+          <!-- Property 6 -->
+          <article class="property-card reveal reveal-delay-3">
+            <div class="property-img">
+              <img src="https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=600&q=80"
+                   alt="New House Jand" loading="lazy" />
+              <div class="property-badges">
+                <span class="badge badge-sale">For Sale</span>
+                <span class="badge badge-featured">⭐ Featured</span>
+              </div>
+              <button class="property-save" data-id="prop-6" aria-label="Save property">🤍</button>
+              <div style="position:absolute;bottom:8px;right:8px">
+                <span class="badge badge-demo">DEMO</span>
+              </div>
+            </div>
+            <div class="property-body">
+              <div class="property-price">
+                Rs. 1.8 Crore
+                <div class="property-price-sub">Recently Built</div>
+              </div>
+              <h3 class="property-title">1 Kanal Naya Ghar — Jand, Modern Design, Fully Tiled</h3>
+              <div class="property-location">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Jand, Attock
+              </div>
+              <div class="property-features">
+                <span class="property-feature">🛏️ 5 Kamre</span>
+                <span class="property-feature">🚿 3 Baths</span>
+                <span class="property-feature">📐 1 Kanal</span>
+              </div>
+            </div>
+            <div class="property-footer">
+              <span style="font-size:0.75rem;color:var(--text-light)">Aaj add hua</span>
+              <button class="btn btn-whatsapp btn-sm" data-wa="property"
+                      data-title="1 Kanal House Jand">
+                💬 Inquiry
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center" style="margin-top:2.5rem">
+          <a href="pages/properties.html" class="btn btn-navy btn-lg reveal">
+            Tamam Properties Dekhein →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ KNOWLEDGE BASE PREVIEW ══════════════ -->
+    <section class="section" style="background:var(--navy)">
+      <div class="container">
+        <div class="section-header reveal" style="text-align:left">
+          <p class="label">Knowledge Base</p>
+          <h2 class="heading-lg" style="color:var(--white)">Property Ka Poora Ilm</h2>
+          <div class="gold-divider-left"></div>
+          <p style="color:rgba(255,255,255,0.5);margin-top:0.75rem;max-width:500px">
+            Attock mein property ka koi bhi kaam karein — pehle yeh guides zaroor parhen.
+            Fraud se bachein, paisa bachayein, waqt bachayein.
+          </p>
+        </div>
+
+        <div class="guides-grid" style="margin-top:2rem">
+
+          <div class="guide-card reveal reveal-delay-1">
+            <div class="guide-card-top">
+              <span class="guide-emoji">📋</span>
+              <div class="guide-lock">🔓</div>
+            </div>
+            <div class="guide-body">
+              <h3 class="guide-title">Fard Kaise Nikalte Hain? — Mukammal Roadmap</h3>
+              <div class="guide-preview guide-preview-fade">
+                Fard nikalna Pakistan mein property ka sabse zaroori kaam hai. Yeh ek sarkari dastaawez hai jo zameen ki maliki sabit karta hai. Is guide mein hum step by step bataenge k fard kaise nikalte hain, kya documents chahiye, aur patwari se kaise kaam karwayein...
+              </div>
+              <div style="margin-top:0.5rem">
+                <span class="badge" style="background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3)">
+                  🔓 Free Preview Available
+                </span>
+              </div>
+            </div>
+            <div class="guide-footer">
+              <div>
+                <div class="guide-price">Rs. 300</div>
+                <div class="guide-pages">25 pages • Urdu + English</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide"
+                      data-guide="Fard Kaise Nikalte Hain" data-price="300">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <div class="guide-card reveal reveal-delay-2">
+            <div class="guide-card-top">
+              <span class="guide-emoji">🛡️</span>
+              <div class="guide-lock">🔒</div>
+            </div>
+            <div class="guide-body">
+              <h3 class="guide-title">Property Fraud Se Kaise Bachein? — 15 Common Tricks</h3>
+              <div class="guide-preview guide-preview-fade">
+                Pakistan mein property fraud aam baat hai. Fake registry, fake fard, double selling — yeh sab common fraud hain. Is guide mein hum aapko 15 common fraud tricks batayenge aur unse bachne ka tarika...
+              </div>
+              <div style="margin-top:0.5rem">
+                <span class="badge" style="background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3)">
+                  🔓 Free Preview Available
+                </span>
+              </div>
+            </div>
+            <div class="guide-footer">
+              <div>
+                <div class="guide-price">Rs. 500</div>
+                <div class="guide-pages">35 pages • Urdu</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide"
+                      data-guide="Property Fraud Se Kaise Bachein" data-price="500">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <div class="guide-card reveal reveal-delay-3">
+            <div class="guide-card-top">
+              <span class="guide-emoji">📝</span>
+              <div class="guide-lock">🔒</div>
+            </div>
+            <div class="guide-body">
+              <h3 class="guide-title">Intiqal Kaise Hota Hai? — Registry se Maliki Tak</h3>
+              <div class="guide-preview guide-preview-fade">
+                Intiqal ek zarori legal process hai jisme zameen ki maliki ek shakhs se doosre ki taraf transfer hoti hai. Galat intiqal se badi musibat ho sakti hai. Yeh guide aapko poora process batayega...
+              </div>
+              <div style="margin-top:0.5rem">
+                <span class="badge" style="background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.3)">
+                  🔓 Free Preview Available
+                </span>
+              </div>
+            </div>
+            <div class="guide-footer">
+              <div>
+                <div class="guide-price">Rs. 400</div>
+                <div class="guide-pages">28 pages • Urdu</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide"
+                      data-guide="Intiqal Kaise Hota Hai" data-price="400">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center" style="margin-top:2.5rem">
+          <a href="pages/guides.html" class="btn btn-outline btn-lg reveal">
+            Tamam Guides Dekhein →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ PATWARI SERVICES ═════════════════════ -->
+    <section class="section" style="background:var(--cream)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="label">Patwari Services</p>
+          <h2 class="heading-lg">Zameen Ka Kaam Aasaan Karein</h2>
+          <div class="gold-divider"></div>
+          <p style="color:var(--text-mid);margin-top:0.75rem">
+            Hamare trusted patwari network ke zariye sarkari kaam ghar baithe karwayein
+          </p>
+        </div>
+
+        <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+
+          <div class="reveal reveal-delay-1" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--transition)" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--border-gold)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--border)'">
+            <div style="font-size:2rem;flex-shrink:0">📋</div>
+            <div>
+              <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.25rem">Fard Nikalna</h4>
+              <p style="font-size:0.82rem;color:var(--text-mid);margin-bottom:0.6rem">Zameen ka sarkari record — Rs. 500-1,500 | 2-5 din</p>
+              <button class="btn btn-whatsapp btn-sm" data-wa="patwari" data-service="Fard Nikalna">
+                💬 Request Karein
+              </button>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--transition)" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--border-gold)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--border)'">
+            <div style="font-size:2rem;flex-shrink:0">🔄</div>
+            <div>
+              <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.25rem">Intiqal / Transfer</h4>
+              <p style="font-size:0.82rem;color:var(--text-mid);margin-bottom:0.6rem">Maliki ka transfer — Rs. 2,000-5,000 | 7-15 din</p>
+              <button class="btn btn-whatsapp btn-sm" data-wa="patwari" data-service="Intiqal / Transfer">
+                💬 Request Karein
+              </button>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-3" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--transition)" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--border-gold)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--border)'">
+            <div style="font-size:2rem;flex-shrink:0">✍️</div>
+            <div>
+              <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.25rem">Registry</h4>
+              <p style="font-size:0.82rem;color:var(--text-mid);margin-bottom:0.6rem">Property ki registry — Rs. 3,000-8,000 | 3-7 din</p>
+              <button class="btn btn-whatsapp btn-sm" data-wa="patwari" data-service="Registry">
+                💬 Request Karein
+              </button>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--transition)" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--border-gold)'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--border)'">
+            <div style="font-size:2rem;flex-shrink:0">🔍</div>
+            <div>
+              <h4 style="font-weight:700;color:var(--navy);margin-bottom:0.25rem">Zameen Verification</h4>
+              <p style="font-size:0.82rem;color:var(--text-mid);margin-bottom:0.6rem">Fraud check karein — Rs. 1,000-2,000 | 1-3 din</p>
+              <button class="btn btn-whatsapp btn-sm" data-wa="patwari" data-service="Zameen Verification">
+                💬 Request Karein
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="text-center" style="margin-top:2rem">
+          <a href="pages/patwari.html" class="btn btn-navy btn-lg reveal">
+            Tamam Services Dekhein →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ AGENTS ════════════════════════════════ -->
+    <section class="section" style="background:var(--white)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="label">Hamare Agents</p>
+          <h2 class="heading-lg">Attock Ke Trusted Agents</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="agents-grid">
+
+          <div class="agent-card reveal reveal-delay-1">
+            <div class="agent-avatar">👨</div>
+            <div class="agent-name">Muhammad Arif</div>
+            <div class="agent-title">Senior Property Agent</div>
+            <div class="agent-verified">✅ Verified Agent</div>
+            <div class="agent-stats">
+              <div style="text-align:center">
+                <div class="agent-stat-num">45+</div>
+                <div class="agent-stat-label">Deals</div>
+              </div>
+              <div style="text-align:center">
+                <div class="agent-stat-num">8 Sal</div>
+                <div class="agent-stat-label">Experience</div>
+              </div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--text-light);margin-bottom:0.75rem">Attock City, Hassan Abdal</div>
+            <button class="btn btn-whatsapp btn-sm" style="width:100%" data-wa="agent" data-name="Muhammad Arif">
+              💬 Contact
+            </button>
+          </div>
+
+          <div class="agent-card reveal reveal-delay-2">
+            <div class="agent-avatar">👩</div>
+            <div class="agent-name">Sana Malik</div>
+            <div class="agent-title">Residential Specialist</div>
+            <div class="agent-verified">✅ Verified Agent</div>
+            <div class="agent-stats">
+              <div style="text-align:center">
+                <div class="agent-stat-num">28+</div>
+                <div class="agent-stat-label">Deals</div>
+              </div>
+              <div style="text-align:center">
+                <div class="agent-stat-num">4 Sal</div>
+                <div class="agent-stat-label">Experience</div>
+              </div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--text-light);margin-bottom:0.75rem">Hazro, Fateh Jang</div>
+            <button class="btn btn-whatsapp btn-sm" style="width:100%" data-wa="agent" data-name="Sana Malik">
+              💬 Contact
+            </button>
+          </div>
+
+          <div class="agent-card reveal reveal-delay-3">
+            <div class="agent-avatar">👨‍💼</div>
+            <div class="agent-name">Tariq Hussain</div>
+            <div class="agent-title">Commercial Property Expert</div>
+            <div class="agent-verified">✅ Verified Agent</div>
+            <div class="agent-stats">
+              <div style="text-align:center">
+                <div class="agent-stat-num">60+</div>
+                <div class="agent-stat-label">Deals</div>
+              </div>
+              <div style="text-align:center">
+                <div class="agent-stat-num">12 Sal</div>
+                <div class="agent-stat-label">Experience</div>
+              </div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--text-light);margin-bottom:0.75rem">Pindi Gheb, Jand</div>
+            <button class="btn btn-whatsapp btn-sm" style="width:100%" data-wa="agent" data-name="Tariq Hussain">
+              💬 Contact
+            </button>
+          </div>
+
+          <div class="agent-card reveal reveal-delay-4">
+            <div class="agent-avatar">👨</div>
+            <div class="agent-name">Imran Baig</div>
+            <div class="agent-title">Plot & Land Specialist</div>
+            <div class="agent-verified">✅ Verified Agent</div>
+            <div class="agent-stats">
+              <div style="text-align:center">
+                <div class="agent-stat-num">35+</div>
+                <div class="agent-stat-label">Deals</div>
+              </div>
+              <div style="text-align:center">
+                <div class="agent-stat-num">6 Sal</div>
+                <div class="agent-stat-label">Experience</div>
+              </div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--text-light);margin-bottom:0.75rem">Fatehjang Road, Maqam</div>
+            <button class="btn btn-whatsapp btn-sm" style="width:100%" data-wa="agent" data-name="Imran Baig">
+              💬 Contact
+            </button>
+          </div>
+
+        </div>
+
+        <div class="text-center" style="margin-top:2.5rem">
+          <a href="pages/agents.html" class="btn btn-navy reveal">Tamam Agents Dekhein →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ══════════════════════════════════ -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div class="cta-banner-content">
+            <p class="label" style="margin-bottom:0.5rem">Property List Karein</p>
+            <h2 class="heading-lg" style="color:var(--white);margin-bottom:0.75rem">
+              Apni Property Bechein ya Kiraye Par Dein
+            </h2>
+            <p style="color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 1.75rem;font-size:0.95rem">
+              Attock Property pe listing karein — hazaron logo tak pahunchein.
+              Featured listing se aapki property sabse pehle nazar aayegi.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center">
+              <a href="pages/submit-listing.html" class="btn btn-gold btn-lg">
+                + Listing Daalein
+              </a>
+              <button class="btn btn-white btn-lg" data-wa="contact">
+                💬 Pehle Baat Karein
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏠</div>
+            <span class="nav-logo-text">Attock <span>Property</span></span>
+          </a>
+          <p>
+            Attock ka pehla aur trusted online property portal.
+            Ghar dhoondhna ab aasaan hai.
+            <br><span style="font-size:0.8rem;opacity:0.6">اٹک کا بھروسہ مند پراپرٹی پورٹل</span>
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Properties</div>
+          <ul class="footer-links">
+            <li><a href="pages/properties.html?type=buy" class="footer-link">Khareedein</a></li>
+            <li><a href="pages/properties.html?type=rent" class="footer-link">Kiraye Par Lein</a></li>
+            <li><a href="pages/properties.html?type=sell" class="footer-link">Bechein</a></li>
+            <li><a href="pages/submit-listing.html" class="footer-link">Listing Daalein</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="pages/patwari.html" class="footer-link">Patwari Services</a></li>
+            <li><a href="pages/guides.html" class="footer-link">Knowledge Base</a></li>
+            <li><a href="pages/agents.html" class="footer-link">Agents Directory</a></li>
+            <li><a href="pages/contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Areas</div>
+          <ul class="footer-links">
+            <li><a href="pages/properties.html?area=attock-city" class="footer-link">Attock City</a></li>
+            <li><a href="pages/properties.html?area=hassanabdal" class="footer-link">Hassan Abdal</a></li>
+            <li><a href="pages/properties.html?area=hazro" class="footer-link">Hazro</a></li>
+            <li><a href="pages/properties.html?area=fateh-jang" class="footer-link">Fateh Jang</a></li>
+            <li><a href="pages/properties.html?area=pindigheb" class="footer-link">Pindi Gheb</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Attock Property. Sab haqooq mehfooz hain.</span>
+        <div style="display:flex;gap:1rem">
+          <button data-wa="contact" class="footer-link" style="cursor:pointer">WhatsApp</button>
+          <a href="pages/contact.html" class="footer-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Show nav list button after scroll -->
+  <script>
+    setTimeout(() => {
+      const btn = document.getElementById('nav-list-btn');
+      if (btn) btn.style.display = 'inline-flex';
+    }, 2000);
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
