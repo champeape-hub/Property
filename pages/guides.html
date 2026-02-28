@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knowledge Base — Attock Property</title>
+  <meta name="description" content="Pakistan real estate ka poora ilm Urdu mein. Fard, intiqal, fraud se bachao, loan process — sab kuch yahan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: 120px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px),
+                        repeating-linear-gradient(-45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+    }
+    .page-header-content { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.5); }
+    .breadcrumb a:hover { color: var(--gold); }
+
+    .guide-full-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .guide-full-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-gold);
+    }
+    .guide-full-top {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .guide-full-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; gap: 0.75rem; }
+    .guide-full-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .guide-preview-text {
+      font-size: 0.83rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .guide-what-youll-learn {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+    }
+    .guide-what-youll-learn h4 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .learn-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-bottom: 0.3rem;
+    }
+    .learn-check { color: var(--gold-dark); font-weight: 700; flex-shrink: 0; }
+    .guide-full-footer {
+      padding: 0.875rem 1.25rem;
+      border-top: 1px solid var(--border);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .guide-price-big {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .guide-meta { font-size: 0.72rem; color: var(--text-light); font-weight: 600; }
+
+    .category-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .cat-pill {
+      padding: 7px 16px;
+      border-radius: var(--radius-xl);
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .cat-pill:hover { border-color: var(--gold); color: var(--gold-dark); }
+    .cat-pill.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+
+    .payment-steps {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    .payment-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.875rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .payment-step:last-child { border-bottom: none; }
+    .payment-step-num {
+      width: 28px; height: 28px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a id="wa-float" class="whatsapp-float" href="#" title="WhatsApp" aria-label="WhatsApp">💬</a>
+  <div id="toast-container" class="toast-container"></div>
+
+  <header>
+    <nav id="main-nav" class="nav scrolled">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+          <div class="nav-logo-icon">🏠</div>
+          <span class="nav-logo-text">Attock <span>Property</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="patwari.html" class="nav-link">Patwari Services</a></li>
+          <li><a href="guides.html" class="nav-link" style="color:var(--gold)">Knowledge Base</a></li>
+          <li><a href="agents.html" class="nav-link">Agents</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="submit-listing.html" class="btn btn-gold btn-sm">+ List Property</a>
+          <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="properties.html" class="nav-link">🏘️ Properties</a>
+      <a href="patwari.html" class="nav-link">📜 Patwari Services</a>
+      <a href="guides.html" class="nav-link">📚 Knowledge Base</a>
+      <a href="agents.html" class="nav-link">👔 Agents</a>
+      <a href="contact.html" class="nav-link">📞 Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container page-header-content">
+        <nav class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>›</span>
+          <span style="color:rgba(255,255,255,0.8)">Knowledge Base</span>
+        </nav>
+        <p class="label" style="margin-bottom:0.5rem">Real Estate Ka Poora Ilm</p>
+        <h1 class="heading-xl" style="color:var(--white);margin-bottom:0.75rem">
+          <span style="color:var(--gold)">Urdu</span> Mein<br>Property Guides
+        </h1>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:520px">
+          Fraud se bachein, sahi faisla karein, paisa bachayein.
+          Har guide mein step-by-step roadmap hai — bilkul aasaan Urdu mein.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--cream)">
+      <div class="container">
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+          <button class="cat-pill active" data-cat="all">Sab Guides</button>
+          <button class="cat-pill" data-cat="documents">📋 Documents</button>
+          <button class="cat-pill" data-cat="buying">🏠 Khareedna</button>
+          <button class="cat-pill" data-cat="fraud">🛡️ Fraud</button>
+          <button class="cat-pill" data-cat="legal">⚖️ Legal</button>
+          <button class="cat-pill" data-cat="finance">💰 Finance</button>
+        </div>
+
+        <!-- Guides Grid -->
+        <div class="guides-grid" id="guides-grid">
+
+          <!-- Guide 1 -->
+          <div class="guide-full-card reveal reveal-delay-1" data-cat="documents">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">📋</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">FREE PREVIEW</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Fard Kaise Nikalte Hain? — Mukammal Roadmap</h3>
+              <p class="guide-preview-text">
+                Fard Pakistan mein property ka sabse zaroori document hai. Is guide mein hum step by step bataenge k fard kaise nikalte hain, kya documents chahiye, aur patwari se kaise kaam karwayein...
+                <span style="color:var(--gold-dark);font-weight:700"> [Full guide mein aur bahut kuch hai]</span>
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Fard aur registry mein farq</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Konse documents chahiye</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Patwari se kaise deal karein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Kitna time aur paisa lagta hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Common galtiyan jo log karte hain</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 300</div>
+                <div class="guide-meta">25 pages • Urdu + English • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Fard Kaise Nikalte Hain" data-price="300">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 2 -->
+          <div class="guide-full-card reveal reveal-delay-2" data-cat="fraud">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">🛡️</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">BESTSELLER</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Property Fraud Se Kaise Bachein? — 15 Common Tricks</h3>
+              <p class="guide-preview-text">
+                Pakistan mein property fraud aam baat hai. Fake registry, fake fard, double selling — yeh sab common fraud hain. Is guide mein 15 fraud tricks aur unse bachne ka tarika...
+                <span style="color:var(--gold-dark);font-weight:700"> [Full guide mein aur bahut kuch hai]</span>
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>15 common property fraud tricks</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Khareedne se pehle kya check karein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Fake documents kaise pehchanein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Double selling se kaise bachein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Fraud hone par kya karein</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 500</div>
+                <div class="guide-meta">35 pages • Urdu • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Property Fraud Se Kaise Bachein" data-price="500">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 3 -->
+          <div class="guide-full-card reveal reveal-delay-3" data-cat="legal">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">📝</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">FREE PREVIEW</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Intiqal Kaise Hota Hai? — Registry se Maliki Tak</h3>
+              <p class="guide-preview-text">
+                Intiqal ek zarori legal process hai jisme zameen ki maliki transfer hoti hai. Galat intiqal se badi musibat ho sakti hai. Yeh guide poora process batata hai...
+                <span style="color:var(--gold-dark);font-weight:700"> [Full guide mein aur bahut kuch hai]</span>
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Intiqal kyun zaroori hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Step by step process</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Kitni fees lagti hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Kitna time lagta hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Common mistakes se bachao</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 400</div>
+                <div class="guide-meta">28 pages • Urdu • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Intiqal Kaise Hota Hai" data-price="400">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 4 -->
+          <div class="guide-full-card reveal reveal-delay-1" data-cat="buying">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">🏠</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">POPULAR</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Plot Khareedne Ka Safe Tarika — Beginner's Guide</h3>
+              <p class="guide-preview-text">
+                Pehli baar plot khareed rahe hain? Yeh guide aapke liye hai. Kahan se shuru karein, kya check karein, kaun se documents lein — sab kuch step by step...
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Plot ki location kaise choose karein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Price negotiate karne ka tarika</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Kaunse documents verify karein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Registry se intiqal tak ka process</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Approved vs unapproved society</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 450</div>
+                <div class="guide-meta">30 pages • Urdu + English • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Plot Khareedne Ka Safe Tarika" data-price="450">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 5 -->
+          <div class="guide-full-card reveal reveal-delay-2" data-cat="legal">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">⚖️</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">FREE PREVIEW</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Lease vs Freehold — Kya Farq Hai? Kaunsa Behtar?</h3>
+              <p class="guide-preview-text">
+                Bahut log lease aur freehold ka farq nahi jaante — aur yahi galat fehmi unhe nuksan pahunchati hai. Is guide mein dono ka poora tajziya...
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Lease property kya hoti hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Freehold property ke fayde</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Attock mein konsa zyada hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Investment ke liye kaunsa behtar</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Legal implications</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 250</div>
+                <div class="guide-meta">18 pages • Urdu • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Lease vs Freehold Guide" data-price="250">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 6 -->
+          <div class="guide-full-card reveal reveal-delay-3" data-cat="finance">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">🏦</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">NEW</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Bank Se Home Loan Kaise Lein? — Mukammal Process</h3>
+              <p class="guide-preview-text">
+                Pakistan mein home loan lena mushkil lagta hai — lekin sahi guidance se bilkul aasaan hai. Kaunsa bank behtar hai, kya documents chahiye, EMI kaise calculate karein...
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Pakistan mein konse banks loan dete hain</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Eligibility kaise check karein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Documents ki complete list</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Interest rate compare karne ka tarika</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Application se approval tak ka process</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 500</div>
+                <div class="guide-meta">32 pages • Urdu + English • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Bank Se Home Loan Kaise Lein" data-price="500">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 7 -->
+          <div class="guide-full-card reveal reveal-delay-1" data-cat="buying">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">🏘️</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">POPULAR</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Society vs Open Plot — Kaunsa Khareedein?</h3>
+              <p class="guide-preview-text">
+                Society mein plot ya open area mein? Dono ke apne fayde aur nuqsaan hain. Yeh guide aapko sahi faisla karne mein madad dega...
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Approved society kya hoti hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Open plot ke risks</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Price comparison</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Investment return konsa zyada</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Attock mein konse areas safe hain</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 350</div>
+                <div class="guide-meta">22 pages • Urdu • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Society vs Open Plot Guide" data-price="350">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+          <!-- Guide 8 -->
+          <div class="guide-full-card reveal reveal-delay-2" data-cat="documents">
+            <div class="guide-full-top">
+              <span style="font-size:2.2rem">📜</span>
+              <span style="background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);border-radius:20px;padding:4px 10px;font-size:0.7rem;font-weight:700;color:var(--gold)">ESSENTIAL</span>
+            </div>
+            <div class="guide-full-body">
+              <h3 class="guide-full-title">Patwari Se Kaise Deal Karein? — Insider Tips</h3>
+              <p class="guide-preview-text">
+                Patwari se kaam karwana mushkil ho sakta hai agar aapko process nahi pata. Yeh guide aapko insider tips dega taake kaam jaldi aur sasti ho...
+              </p>
+              <div class="guide-what-youll-learn">
+                <h4>Is Guide Mein Seekhein:</h4>
+                <div class="learn-item"><span class="learn-check">✓</span>Patwari office kaise kaam karta hai</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Kab aur kaise jaana chahiye</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Documents pehle se tayyar karein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Extra fees se kaise bachein</div>
+                <div class="learn-item"><span class="learn-check">✓</span>Kaam na ho toh kya karein</div>
+              </div>
+            </div>
+            <div class="guide-full-footer">
+              <div>
+                <div class="guide-price-big">Rs. 300</div>
+                <div class="guide-meta">20 pages • Urdu • PDF</div>
+              </div>
+              <button class="btn btn-gold btn-sm" data-wa="guide" data-guide="Patwari Se Kaise Deal Karein" data-price="300">
+                💬 Khareedein
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Payment Process -->
+        <div class="payment-steps reveal" style="margin-top:3rem">
+          <p class="label" style="margin-bottom:0.5rem">Guide Kaise Khareedein?</p>
+          <h3 class="heading-md" style="color:var(--white);margin-bottom:1.25rem">Payment Process — Bilkul Aasaan</h3>
+          <div class="payment-step">
+            <div class="payment-step-num">1</div>
+            <div><strong style="color:var(--white)">"Khareedein" button dabayein</strong><br>WhatsApp khulega guide ka naam ke saath</div>
+          </div>
+          <div class="payment-step">
+            <div class="payment-step-num">2</div>
+            <div><strong style="color:var(--white)">Hum EasyPaisa / JazzCash number bhejein ge</strong><br>Apni currency mein payment karein</div>
+          </div>
+          <div class="payment-step">
+            <div class="payment-step-num">3</div>
+            <div><strong style="color:var(--white)">Payment screenshot WhatsApp pe bhejein</strong><br>Sirf ek minute ka kaam</div>
+          </div>
+          <div class="payment-step">
+            <div class="payment-step-num">4</div>
+            <div><strong style="color:var(--white)">PDF guide turant milegi</strong><br>WhatsApp pe hi — download kar lein</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏠</div>
+            <span class="nav-logo-text">Attock <span>Property</span></span>
+          </a>
+          <p>Attock ka trusted online property portal.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Guides</div>
+          <ul class="footer-links">
+            <li><a href="guides.html" class="footer-link">Sab Guides</a></li>
+            <li><a href="patwari.html" class="footer-link">Patwari Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Properties</div>
+          <ul class="footer-links">
+            <li><a href="properties.html" class="footer-link">Sab Properties</a></li>
+            <li><a href="submit-listing.html" class="footer-link">Listing Daalein</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><button data-wa="contact" class="footer-link" style="cursor:pointer;background:none;border:none;font:inherit">WhatsApp</button></li>
+            <li><a href="contact.html" class="footer-link">Contact Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Attock Property.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Category filter
+    document.querySelectorAll('.cat-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.guide-full-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

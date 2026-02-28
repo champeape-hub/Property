@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patwari Services — Attock Property</title>
+  <meta name="description" content="Attock mein fard, intiqal, registry, zameen verification — hamare trusted patwari network se karwayein." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: 120px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px),
+                        repeating-linear-gradient(-45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+    }
+    .page-header-content { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+
+    .service-detail-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .service-detail-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-gold);
+      transform: translateY(-3px);
+    }
+    .service-detail-top {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .service-detail-icon {
+      width: 56px; height: 56px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .service-detail-body { padding: 1.5rem; }
+    .service-detail-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .service-detail-subtitle {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 3px;
+    }
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { color: var(--text-light); font-weight: 600; min-width: 100px; font-size: 0.78rem; }
+    .info-value { color: var(--text-dark); font-weight: 700; }
+    .info-value.gold { color: var(--gold-dark); }
+
+    .steps-list { display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+    .step-num {
+      width: 24px; height: 24px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .warning-box {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      font-size: 0.83rem;
+      color: #b91c1c;
+      margin-top: 1rem;
+    }
+    .warning-box strong { display: block; margin-bottom: 0.25rem; }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .faq-question:hover { background: var(--cream); }
+    .faq-answer {
+      padding: 0 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding: 0 1.25rem 1rem;
+    }
+    .faq-arrow { transition: transform 0.3s; font-size: 0.8rem; }
+    .faq-arrow.open { transform: rotate(180deg); }
+  </style>
+</head>
+<body>
+
+  <a id="wa-float" class="whatsapp-float" href="#" title="WhatsApp" aria-label="WhatsApp">💬</a>
+  <div id="toast-container" class="toast-container"></div>
+
+  <header>
+    <nav id="main-nav" class="nav scrolled">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+          <div class="nav-logo-icon">🏠</div>
+          <span class="nav-logo-text">Attock <span>Property</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="patwari.html" class="nav-link" style="color:var(--gold)">Patwari Services</a></li>
+          <li><a href="guides.html" class="nav-link">Knowledge Base</a></li>
+          <li><a href="agents.html" class="nav-link">Agents</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="submit-listing.html" class="btn btn-gold btn-sm">+ List Property</a>
+          <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="properties.html" class="nav-link">🏘️ Properties</a>
+      <a href="patwari.html" class="nav-link">📜 Patwari Services</a>
+      <a href="guides.html" class="nav-link">📚 Knowledge Base</a>
+      <a href="agents.html" class="nav-link">👔 Agents</a>
+      <a href="contact.html" class="nav-link">📞 Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container page-header-content">
+        <nav class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>›</span>
+          <span style="color:rgba(255,255,255,0.8)">Patwari Services</span>
+        </nav>
+        <p class="label" style="margin-bottom:0.5rem">Sarkari Kaam Aasaan</p>
+        <h1 class="heading-xl" style="color:var(--white);margin-bottom:0.75rem">
+          Patwari <span style="color:var(--gold)">Services</span>
+        </h1>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:500px">
+          Fard, intiqal, registry — hamare trusted patwari network se karwayein.
+          Ghar baithe request karein, hum sambhal lein ge.
+        </p>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <section style="background:var(--cream);padding:2rem 0">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;text-align:center">
+          <div style="padding:1.25rem">
+            <div style="font-size:2rem;margin-bottom:0.5rem">💬</div>
+            <div style="font-weight:800;color:var(--navy);margin-bottom:0.25rem">Step 1</div>
+            <div style="font-size:0.83rem;color:var(--text-mid)">WhatsApp pe service request karein</div>
+          </div>
+          <div style="padding:1.25rem">
+            <div style="font-size:2rem;margin-bottom:0.5rem">📋</div>
+            <div style="font-weight:800;color:var(--navy);margin-bottom:0.25rem">Step 2</div>
+            <div style="font-size:0.83rem;color:var(--text-mid)">Documents ki list milen gi</div>
+          </div>
+          <div style="padding:1.25rem">
+            <div style="font-size:2rem;margin-bottom:0.5rem">🤝</div>
+            <div style="font-weight:800;color:var(--navy);margin-bottom:0.25rem">Step 3</div>
+            <div style="font-size:0.83rem;color:var(--text-mid)">Hamare patwari se milein</div>
+          </div>
+          <div style="padding:1.25rem">
+            <div style="font-size:2rem;margin-bottom:0.5rem">✅</div>
+            <div style="font-weight:800;color:var(--navy);margin-bottom:0.25rem">Step 4</div>
+            <div style="font-size:0.83rem;color:var(--text-mid)">Kaam ho jaye — document milega</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="section" style="background:var(--white)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="label">Hamaari Services</p>
+          <h2 class="heading-lg">Kaunsa Kaam Karwana Hai?</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div style="display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+
+          <!-- Fard -->
+          <div class="service-detail-card reveal reveal-delay-1">
+            <div class="service-detail-top">
+              <div class="service-detail-icon">📋</div>
+              <div>
+                <div class="service-detail-title">Fard Nikalna</div>
+                <div class="service-detail-subtitle">Zameen ka sarkari record</div>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <div class="info-row">
+                <span class="info-label">💰 Fee</span>
+                <span class="info-value gold">Rs. 500 — 1,500</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">⏱️ Time</span>
+                <span class="info-value">2 — 5 working din</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📄 Documents</span>
+                <span class="info-value">CNIC + Zameen ki location</span>
+              </div>
+              <div class="steps-list" style="margin-top:0.75rem">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem">Kya milega:</div>
+                <div class="step-item"><div class="step-num">✓</div>Zameen ki maliki ka proof</div>
+                <div class="step-item"><div class="step-num">✓</div>Hadbast number aur area</div>
+                <div class="step-item"><div class="step-num">✓</div>Sarkari stamp ke saath</div>
+              </div>
+              <button class="btn btn-whatsapp" style="width:100%;margin-top:1rem;justify-content:center"
+                data-wa="patwari" data-service="Fard Nikalna">
+                💬 Fard Request Karein
+              </button>
+            </div>
+          </div>
+
+          <!-- Intiqal -->
+          <div class="service-detail-card reveal reveal-delay-2">
+            <div class="service-detail-top">
+              <div class="service-detail-icon">🔄</div>
+              <div>
+                <div class="service-detail-title">Intiqal / Transfer</div>
+                <div class="service-detail-subtitle">Maliki ka transfer</div>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <div class="info-row">
+                <span class="info-label">💰 Fee</span>
+                <span class="info-value gold">Rs. 2,000 — 5,000</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">⏱️ Time</span>
+                <span class="info-value">7 — 15 working din</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📄 Documents</span>
+                <span class="info-value">CNIC dono + Registry + Fard</span>
+              </div>
+              <div class="steps-list" style="margin-top:0.75rem">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem">Kya milega:</div>
+                <div class="step-item"><div class="step-num">✓</div>Naye malik ke naam par fard</div>
+                <div class="step-item"><div class="step-num">✓</div>Patwari ke records mein update</div>
+                <div class="step-item"><div class="step-num">✓</div>Intiqal certificate</div>
+              </div>
+              <div class="warning-box">
+                <strong>⚠️ Zaroori:</strong>
+                Intiqal ke baad hi zameen legally aapki hogi. Sirf registry kaafi nahi hoti.
+              </div>
+              <button class="btn btn-whatsapp" style="width:100%;margin-top:1rem;justify-content:center"
+                data-wa="patwari" data-service="Intiqal / Transfer">
+                💬 Intiqal Request Karein
+              </button>
+            </div>
+          </div>
+
+          <!-- Registry -->
+          <div class="service-detail-card reveal reveal-delay-3">
+            <div class="service-detail-top">
+              <div class="service-detail-icon">✍️</div>
+              <div>
+                <div class="service-detail-title">Registry</div>
+                <div class="service-detail-subtitle">Property ki sarkari registry</div>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <div class="info-row">
+                <span class="info-label">💰 Fee</span>
+                <span class="info-value gold">Rs. 3,000 — 8,000</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">⏱️ Time</span>
+                <span class="info-value">3 — 7 working din</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📄 Documents</span>
+                <span class="info-value">CNIC + Witnesses + Fard</span>
+              </div>
+              <div class="steps-list" style="margin-top:0.75rem">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem">Process:</div>
+                <div class="step-item"><div class="step-num">1</div>Documents tayyar karein</div>
+                <div class="step-item"><div class="step-num">2</div>Sub-Registrar office jaana hoga</div>
+                <div class="step-item"><div class="step-num">3</div>Stamp duty pay karein</div>
+                <div class="step-item"><div class="step-num">4</div>Registry document milega</div>
+              </div>
+              <button class="btn btn-whatsapp" style="width:100%;margin-top:1rem;justify-content:center"
+                data-wa="patwari" data-service="Registry">
+                💬 Registry Request Karein
+              </button>
+            </div>
+          </div>
+
+          <!-- Verification -->
+          <div class="service-detail-card reveal reveal-delay-1">
+            <div class="service-detail-top">
+              <div class="service-detail-icon">🔍</div>
+              <div>
+                <div class="service-detail-title">Zameen Verification</div>
+                <div class="service-detail-subtitle">Khareedne se pehle check karein</div>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <div class="info-row">
+                <span class="info-label">💰 Fee</span>
+                <span class="info-value gold">Rs. 1,000 — 2,000</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">⏱️ Time</span>
+                <span class="info-value">1 — 3 working din</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📄 Documents</span>
+                <span class="info-value">Zameen ki location ya fard copy</span>
+              </div>
+              <div class="steps-list" style="margin-top:0.75rem">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem">Kya check hoga:</div>
+                <div class="step-item"><div class="step-num">✓</div>Malik ka naam sahi hai ya nahi</div>
+                <div class="step-item"><div class="step-num">✓</div>Zameen pe koi qarz ya case toh nahi</div>
+                <div class="step-item"><div class="step-num">✓</div>Area aur hadbast number confirm</div>
+                <div class="step-item"><div class="step-num">✓</div>Fraud check report</div>
+              </div>
+              <button class="btn btn-whatsapp" style="width:100%;margin-top:1rem;justify-content:center"
+                data-wa="patwari" data-service="Zameen Verification">
+                💬 Verification Request Karein
+              </button>
+            </div>
+          </div>
+
+          <!-- Girdawari -->
+          <div class="service-detail-card reveal reveal-delay-2">
+            <div class="service-detail-top">
+              <div class="service-detail-icon">🌾</div>
+              <div>
+                <div class="service-detail-title">Girdawari</div>
+                <div class="service-detail-subtitle">Zara'at zameen ka record</div>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <div class="info-row">
+                <span class="info-label">💰 Fee</span>
+                <span class="info-value gold">Rs. 500 — 1,000</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">⏱️ Time</span>
+                <span class="info-value">2 — 4 working din</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📄 Documents</span>
+                <span class="info-value">CNIC + Zameen ka number</span>
+              </div>
+              <div class="steps-list" style="margin-top:0.75rem">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem">Kya milega:</div>
+                <div class="step-item"><div class="step-num">✓</div>Fasal ka record</div>
+                <div class="step-item"><div class="step-num">✓</div>Zameen ki waqt ki halat</div>
+                <div class="step-item"><div class="step-num">✓</div>Bank loan ke liye zaroor</div>
+              </div>
+              <button class="btn btn-whatsapp" style="width:100%;margin-top:1rem;justify-content:center"
+                data-wa="patwari" data-service="Girdawari">
+                💬 Girdawari Request Karein
+              </button>
+            </div>
+          </div>
+
+          <!-- Taqseem -->
+          <div class="service-detail-card reveal reveal-delay-3">
+            <div class="service-detail-top">
+              <div class="service-detail-icon">✂️</div>
+              <div>
+                <div class="service-detail-title">Taqseem / Partition</div>
+                <div class="service-detail-subtitle">Zameen ki taqseem</div>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <div class="info-row">
+                <span class="info-label">💰 Fee</span>
+                <span class="info-value gold">Rs. 3,000 — 10,000</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">⏱️ Time</span>
+                <span class="info-value">15 — 30 din</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">📄 Documents</span>
+                <span class="info-value">Tamam warasaan ki CNIC + Fard</span>
+              </div>
+              <div class="steps-list" style="margin-top:0.75rem">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem">Kab zaroori hai:</div>
+                <div class="step-item"><div class="step-num">✓</div>Warasat mein zameen baat'na ho</div>
+                <div class="step-item"><div class="step-num">✓</div>Shareekdaaron mein hissa alag karna ho</div>
+                <div class="step-item"><div class="step-num">✓</div>Plot subdivide karna ho</div>
+              </div>
+              <button class="btn btn-whatsapp" style="width:100%;margin-top:1rem;justify-content:center"
+                data-wa="patwari" data-service="Taqseem / Partition">
+                💬 Taqseem Request Karein
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background:var(--cream)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="label">Aksar Pooche Jaane Wale Sawal</p>
+          <h2 class="heading-lg">FAQ</h2>
+          <div class="gold-divider"></div>
+        </div>
+        <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:0.75rem">
+
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Fard aur Registry mein kya farq hai?
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+              Fard zameen ka patwari record hai — yeh dikhata hai ke zameen kiske naam par hai patwari ke register mein. Registry ek legal contract hai jo buyer aur seller ke darmiyan hoti hai Sub-Registrar office mein. Dono zaroori hain — sirf registry se zameen aapki nahi hoti jab tak intiqal nahi hota.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Intiqal kyun zaroori hai? Registry se kaam nahi chalta?
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+              Bahut log yeh galti karte hain — sirf registry kar ke soch lete hain kaam ho gaya. Lekin Pakistan mein zameen legally tab aapki hoti hai jab patwari ke record mein aapka naam aa jaye — yahi intiqal hai. Registry ke baad intiqal nahi karwaya toh pichla malik dusre ko bhi bech sakta hai.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Fees mein itna farq kyun hai? (minimum aur maximum)
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+              Fee zameen ki size, area, aur kaam ki complexity pe depend karti hai. Choti zameen ka fard kam mein nikalta hai, badi zameen ya pechida cases mein zyada time aur mehnat lagti hai. Exact fee WhatsApp pe baat karne ke baad confirm hogi.
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              Kya hum khud patwari ke paas ja sakte hain?
+              <span class="faq-arrow">▼</span>
+            </div>
+            <div class="faq-answer">
+              Bilkul ja sakte hain. Lekin agar aapko process nahi pata, documents ki list nahi pata, ya patwari ke saath deal karna mushkil lagta hai — toh hamaari service se waqt aur paisa dono bachta hai. Hum poora process handle karte hain.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-sm">
+      <div class="container">
+        <div style="background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden" class="reveal">
+          <div style="position:relative;z-index:1">
+            <p class="label" style="margin-bottom:0.5rem">Abhi Shuru Karein</p>
+            <h2 class="heading-md" style="color:var(--white);margin-bottom:0.75rem">Apni Service Request Karein</h2>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;margin-bottom:1.5rem">WhatsApp karein — hum 1 ghante mein reply karein ge</p>
+            <button class="btn btn-gold btn-lg" data-wa="patwari" data-service="General Patwari Service">
+              💬 WhatsApp Pe Request Karein
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏠</div>
+            <span class="nav-logo-text">Attock <span>Property</span></span>
+          </a>
+          <p>Attock ka trusted online property portal.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="patwari.html" class="footer-link">Patwari Services</a></li>
+            <li><a href="guides.html" class="footer-link">Knowledge Base</a></li>
+            <li><a href="agents.html" class="footer-link">Agents</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Properties</div>
+          <ul class="footer-links">
+            <li><a href="properties.html" class="footer-link">Sab Properties</a></li>
+            <li><a href="submit-listing.html" class="footer-link">Listing Daalein</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><button data-wa="contact" class="footer-link" style="cursor:pointer;background:none;border:none;font:inherit">WhatsApp</button></li>
+            <li><a href="contact.html" class="footer-link">Contact Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Attock Property.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const arrow = el.querySelector('.faq-arrow');
+      answer.classList.toggle('open');
+      arrow.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

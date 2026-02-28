@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agents Directory — Attock Property</title>
+  <meta name="description" content="Attock ke best verified property agents. Seedha contact karein." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: 120px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px),
+                        repeating-linear-gradient(-45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+    }
+    .page-header-content { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.5); }
+    .breadcrumb a:hover { color: var(--gold); }
+
+    .agent-full-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .agent-full-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-gold);
+    }
+    .agent-full-top {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .agent-full-avatar {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      border: 2px solid rgba(201,168,76,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .agent-full-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .agent-full-title { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .agent-full-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #4ade80;
+      background: rgba(74,222,128,0.1);
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+    .agent-full-body { padding: 1.25rem; }
+    .agent-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .agent-stat-box {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 0.6rem;
+      text-align: center;
+    }
+    .agent-stat-box-num {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .agent-stat-box-label {
+      font-size: 0.65rem;
+      color: var(--text-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .agent-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .agent-tag {
+      padding: 4px 10px;
+      background: rgba(15,31,61,0.06);
+      border-radius: var(--radius-xl);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .agent-areas {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .agent-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .agent-actions .btn { flex: 1; justify-content: center; }
+
+    .join-cta {
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: var(--radius-xl);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .join-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 25px);
+    }
+    .join-cta-content { position: relative; z-index: 1; }
+
+    .agents-grid-full {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 600px) { .agents-grid-full { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .agents-grid-full { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+</head>
+<body>
+
+  <a id="wa-float" class="whatsapp-float" href="#" title="WhatsApp" aria-label="WhatsApp">💬</a>
+  <div id="toast-container" class="toast-container"></div>
+
+  <header>
+    <nav id="main-nav" class="nav scrolled">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+          <div class="nav-logo-icon">🏠</div>
+          <span class="nav-logo-text">Attock <span>Property</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="patwari.html" class="nav-link">Patwari Services</a></li>
+          <li><a href="guides.html" class="nav-link">Knowledge Base</a></li>
+          <li><a href="agents.html" class="nav-link" style="color:var(--gold)">Agents</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="submit-listing.html" class="btn btn-gold btn-sm">+ List Property</a>
+          <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="properties.html" class="nav-link">🏘️ Properties</a>
+      <a href="patwari.html" class="nav-link">📜 Patwari Services</a>
+      <a href="guides.html" class="nav-link">📚 Knowledge Base</a>
+      <a href="agents.html" class="nav-link">👔 Agents</a>
+      <a href="contact.html" class="nav-link">📞 Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container page-header-content">
+        <nav class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>›</span>
+          <span style="color:rgba(255,255,255,0.8)">Agents</span>
+        </nav>
+        <p class="label" style="margin-bottom:0.5rem">Attock Ke Best Agents</p>
+        <h1 class="heading-xl" style="color:var(--white);margin-bottom:0.75rem">
+          Trusted <span style="color:var(--gold)">Verified</span> Agents
+        </h1>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:480px">
+          Seedha agent se baat karein — property khareedna, bechna, ya kiraye par lena — sab ke liye.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--cream)">
+      <div class="container">
+
+        <div class="demo-notice">
+          ⚠️ Yeh demo agents hain. Apna agent add karwanay ke liye
+          <button data-wa="contact" style="color:var(--gold-dark);font-weight:800;text-decoration:underline;cursor:pointer;background:none;border:none;font:inherit">WhatsApp karein</button>
+        </div>
+
+        <div class="agents-grid-full">
+
+          <!-- Agent 1 -->
+          <div class="agent-full-card reveal reveal-delay-1">
+            <div class="agent-full-top">
+              <div class="agent-full-avatar">👨</div>
+              <div>
+                <div class="agent-full-name">Muhammad Arif</div>
+                <div class="agent-full-title">Senior Property Consultant</div>
+                <div class="agent-full-verified">✅ Verified Agent</div>
+              </div>
+            </div>
+            <div class="agent-full-body">
+              <div class="agent-stats-row">
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">45+</div>
+                  <div class="agent-stat-box-label">Deals</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">8 Sal</div>
+                  <div class="agent-stat-box-label">Experience</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">⭐ 4.9</div>
+                  <div class="agent-stat-box-label">Rating</div>
+                </div>
+              </div>
+              <div class="agent-tags">
+                <span class="agent-tag">🏠 Residential</span>
+                <span class="agent-tag">📐 Plots</span>
+                <span class="agent-tag">💰 Investment</span>
+              </div>
+              <div class="agent-areas">
+                📍 Attock City, Hassan Abdal, Hazro
+              </div>
+              <div class="agent-actions">
+                <button class="btn btn-whatsapp btn-sm" data-wa="agent" data-name="Muhammad Arif">💬 WhatsApp</button>
+                <button class="btn btn-navy btn-sm" data-copy-phone="0300-0000000">📞 Call</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent 2 -->
+          <div class="agent-full-card reveal reveal-delay-2">
+            <div class="agent-full-top">
+              <div class="agent-full-avatar">👩</div>
+              <div>
+                <div class="agent-full-name">Sana Malik</div>
+                <div class="agent-full-title">Residential Property Specialist</div>
+                <div class="agent-full-verified">✅ Verified Agent</div>
+              </div>
+            </div>
+            <div class="agent-full-body">
+              <div class="agent-stats-row">
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">28+</div>
+                  <div class="agent-stat-box-label">Deals</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">4 Sal</div>
+                  <div class="agent-stat-box-label">Experience</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">⭐ 4.8</div>
+                  <div class="agent-stat-box-label">Rating</div>
+                </div>
+              </div>
+              <div class="agent-tags">
+                <span class="agent-tag">🏠 Ghar</span>
+                <span class="agent-tag">🔑 Kiraya</span>
+                <span class="agent-tag">👨‍👩‍👧 Family</span>
+              </div>
+              <div class="agent-areas">
+                📍 Hazro, Fateh Jang
+              </div>
+              <div class="agent-actions">
+                <button class="btn btn-whatsapp btn-sm" data-wa="agent" data-name="Sana Malik">💬 WhatsApp</button>
+                <button class="btn btn-navy btn-sm" data-copy-phone="0300-0000001">📞 Call</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent 3 -->
+          <div class="agent-full-card reveal reveal-delay-3">
+            <div class="agent-full-top">
+              <div class="agent-full-avatar">👨‍💼</div>
+              <div>
+                <div class="agent-full-name">Tariq Hussain</div>
+                <div class="agent-full-title">Commercial Property Expert</div>
+                <div class="agent-full-verified">✅ Verified Agent</div>
+              </div>
+            </div>
+            <div class="agent-full-body">
+              <div class="agent-stats-row">
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">60+</div>
+                  <div class="agent-stat-box-label">Deals</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">12 Sal</div>
+                  <div class="agent-stat-box-label">Experience</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">⭐ 5.0</div>
+                  <div class="agent-stat-box-label">Rating</div>
+                </div>
+              </div>
+              <div class="agent-tags">
+                <span class="agent-tag">🏪 Commercial</span>
+                <span class="agent-tag">🏢 Offices</span>
+                <span class="agent-tag">📈 Investment</span>
+              </div>
+              <div class="agent-areas">
+                📍 Pindi Gheb, Jand, Maqam
+              </div>
+              <div class="agent-actions">
+                <button class="btn btn-whatsapp btn-sm" data-wa="agent" data-name="Tariq Hussain">💬 WhatsApp</button>
+                <button class="btn btn-navy btn-sm" data-copy-phone="0300-0000002">📞 Call</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent 4 -->
+          <div class="agent-full-card reveal reveal-delay-1">
+            <div class="agent-full-top">
+              <div class="agent-full-avatar">👨</div>
+              <div>
+                <div class="agent-full-name">Imran Baig</div>
+                <div class="agent-full-title">Plot & Land Specialist</div>
+                <div class="agent-full-verified">✅ Verified Agent</div>
+              </div>
+            </div>
+            <div class="agent-full-body">
+              <div class="agent-stats-row">
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">35+</div>
+                  <div class="agent-stat-box-label">Deals</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">6 Sal</div>
+                  <div class="agent-stat-box-label">Experience</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">⭐ 4.7</div>
+                  <div class="agent-stat-box-label">Rating</div>
+                </div>
+              </div>
+              <div class="agent-tags">
+                <span class="agent-tag">📐 Plots</span>
+                <span class="agent-tag">🌾 Zameen</span>
+                <span class="agent-tag">🏗️ Development</span>
+              </div>
+              <div class="agent-areas">
+                📍 Fatehjang Road, Maqam, Attock City
+              </div>
+              <div class="agent-actions">
+                <button class="btn btn-whatsapp btn-sm" data-wa="agent" data-name="Imran Baig">💬 WhatsApp</button>
+                <button class="btn btn-navy btn-sm" data-copy-phone="0300-0000003">📞 Call</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent 5 -->
+          <div class="agent-full-card reveal reveal-delay-2">
+            <div class="agent-full-top">
+              <div class="agent-full-avatar">👨‍🦳</div>
+              <div>
+                <div class="agent-full-name">Khalid Mehmood</div>
+                <div class="agent-full-title">Agricultural Land Expert</div>
+                <div class="agent-full-verified">✅ Verified Agent</div>
+              </div>
+            </div>
+            <div class="agent-full-body">
+              <div class="agent-stats-row">
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">80+</div>
+                  <div class="agent-stat-box-label">Deals</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">15 Sal</div>
+                  <div class="agent-stat-box-label">Experience</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">⭐ 4.9</div>
+                  <div class="agent-stat-box-label">Rating</div>
+                </div>
+              </div>
+              <div class="agent-tags">
+                <span class="agent-tag">🌾 Zara'at</span>
+                <span class="agent-tag">📐 Kanal</span>
+                <span class="agent-tag">💧 Tube Well</span>
+              </div>
+              <div class="agent-areas">
+                📍 Pindi Gheb, Jand, Fateh Jang
+              </div>
+              <div class="agent-actions">
+                <button class="btn btn-whatsapp btn-sm" data-wa="agent" data-name="Khalid Mehmood">💬 WhatsApp</button>
+                <button class="btn btn-navy btn-sm" data-copy-phone="0300-0000004">📞 Call</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agent 6 -->
+          <div class="agent-full-card reveal reveal-delay-3">
+            <div class="agent-full-top">
+              <div class="agent-full-avatar">👩‍💼</div>
+              <div>
+                <div class="agent-full-name">Ayesha Noor</div>
+                <div class="agent-full-title">Rental Property Specialist</div>
+                <div class="agent-full-verified">✅ Verified Agent</div>
+              </div>
+            </div>
+            <div class="agent-full-body">
+              <div class="agent-stats-row">
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">50+</div>
+                  <div class="agent-stat-box-label">Deals</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">7 Sal</div>
+                  <div class="agent-stat-box-label">Experience</div>
+                </div>
+                <div class="agent-stat-box">
+                  <div class="agent-stat-box-num">⭐ 4.8</div>
+                  <div class="agent-stat-box-label">Rating</div>
+                </div>
+              </div>
+              <div class="agent-tags">
+                <span class="agent-tag">🔑 Kiraya</span>
+                <span class="agent-tag">🏠 Apartments</span>
+                <span class="agent-tag">👨‍👩‍👧 Family</span>
+              </div>
+              <div class="agent-areas">
+                📍 Hassan Abdal, Attock City
+              </div>
+              <div class="agent-actions">
+                <button class="btn btn-whatsapp btn-sm" data-wa="agent" data-name="Ayesha Noor">💬 WhatsApp</button>
+                <button class="btn btn-navy btn-sm" data-copy-phone="0300-0000005">📞 Call</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Join CTA -->
+        <div class="join-cta reveal">
+          <div class="join-cta-content">
+            <p class="label" style="margin-bottom:0.5rem">Agent Banen</p>
+            <h2 class="heading-md" style="color:var(--white);margin-bottom:0.75rem">
+              Kya Aap Attock Mein Property Agent Hain?
+            </h2>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto">
+              Hamare verified agents ki list mein shamil hón.
+              Hazaron buyers/sellers tak pahunchein — bilkul free registration.
+            </p>
+            <button class="btn btn-gold btn-lg" data-wa="contact">
+              💬 Agent Banne Ka Tarika Poochein
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏠</div>
+            <span class="nav-logo-text">Attock <span>Property</span></span>
+          </a>
+          <p>Attock ka trusted online property portal.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Links</div>
+          <ul class="footer-links">
+            <li><a href="properties.html" class="footer-link">Properties</a></li>
+            <li><a href="patwari.html" class="footer-link">Patwari Services</a></li>
+            <li><a href="guides.html" class="footer-link">Knowledge Base</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><button data-wa="contact" class="footer-link" style="cursor:pointer;background:none;border:none;font:inherit">WhatsApp</button></li>
+            <li><a href="contact.html" class="footer-link">Contact Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Attock Property.</span></div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

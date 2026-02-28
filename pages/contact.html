@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Attock Property</title>
+  <meta name="description" content="Attock Property se rabta karein. WhatsApp, call ya message — hum 1 ghante mein reply karein ge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      padding: 120px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px),
+                        repeating-linear-gradient(-45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+    }
+    .page-header-content { position: relative; z-index: 1; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1rem;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.5); }
+    .breadcrumb a:hover { color: var(--gold); }
+
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .contact-method:hover {
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-sm);
+      transform: translateX(4px);
+    }
+    .contact-method-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .contact-method-title { font-weight: 800; color: var(--navy); font-size: 0.9rem; }
+    .contact-method-desc { font-size: 0.78rem; color: var(--text-mid); margin-top: 2px; }
+    .contact-method-action { margin-left: auto; font-size: 1rem; color: var(--text-light); }
+
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 1rem; }
+    .form-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-input, .form-select, .form-textarea {
+      background: var(--cream);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 11px 14px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      font-family: var(--font-body);
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-glow);
+      background: var(--white);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    .faq-mini {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-top: 2rem;
+    }
+    .faq-mini h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .faq-mini-item { margin-bottom: 0.75rem; }
+    .faq-mini-q { font-weight: 700; font-size: 0.83rem; color: var(--navy); margin-bottom: 0.2rem; }
+    .faq-mini-a { font-size: 0.8rem; color: var(--text-mid); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <a id="wa-float" class="whatsapp-float" href="#" title="WhatsApp" aria-label="WhatsApp">💬</a>
+  <div id="toast-container" class="toast-container"></div>
+
+  <header>
+    <nav id="main-nav" class="nav scrolled">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+          <div class="nav-logo-icon">🏠</div>
+          <span class="nav-logo-text">Attock <span>Property</span></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="properties.html" class="nav-link">Properties</a></li>
+          <li><a href="patwari.html" class="nav-link">Patwari Services</a></li>
+          <li><a href="guides.html" class="nav-link">Knowledge Base</a></li>
+          <li><a href="agents.html" class="nav-link">Agents</a></li>
+          <li><a href="contact.html" class="nav-link" style="color:var(--gold)">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="submit-listing.html" class="btn btn-gold btn-sm">+ List Property</a>
+          <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="properties.html" class="nav-link">🏘️ Properties</a>
+      <a href="patwari.html" class="nav-link">📜 Patwari Services</a>
+      <a href="guides.html" class="nav-link">📚 Knowledge Base</a>
+      <a href="agents.html" class="nav-link">👔 Agents</a>
+      <a href="contact.html" class="nav-link">📞 Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container page-header-content">
+        <nav class="breadcrumb">
+          <a href="../index.html">Home</a>
+          <span>›</span>
+          <span style="color:rgba(255,255,255,0.8)">Contact</span>
+        </nav>
+        <p class="label" style="margin-bottom:0.5rem">Hamse Rabta Karein</p>
+        <h1 class="heading-xl" style="color:var(--white);margin-bottom:0.75rem">
+          Hum <span style="color:var(--gold)">Yahan</span> Hain
+        </h1>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.95rem">
+          Koi bhi sawal — property, patwari, guides — hum 1 ghante mein reply karein ge
+        </p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--cream)">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: Contact Methods -->
+          <div class="reveal">
+            <div class="contact-card">
+              <h2 class="heading-md" style="margin-bottom:1.5rem;color:var(--navy)">Kaise Contact Karein?</h2>
+
+              <!-- WhatsApp -->
+              <div class="contact-method" data-wa="contact">
+                <div class="contact-method-icon" style="background:rgba(37,211,102,0.1)">💬</div>
+                <div>
+                  <div class="contact-method-title">WhatsApp (Sabse Fast)</div>
+                  <div class="contact-method-desc">1 ghante mein reply • 24/7 available</div>
+                </div>
+                <span class="contact-method-action">→</span>
+              </div>
+
+              <!-- Call -->
+              <div class="contact-method" id="call-btn">
+                <div class="contact-method-icon" style="background:rgba(15,31,61,0.06)">📞</div>
+                <div>
+                  <div class="contact-method-title">Call Karein</div>
+                  <div class="contact-method-desc">Click karein — number copy ho jayega</div>
+                </div>
+                <span class="contact-method-action">→</span>
+              </div>
+
+              <!-- Property Listing -->
+              <div class="contact-method" onclick="window.location.href='submit-listing.html'">
+                <div class="contact-method-icon" style="background:rgba(201,168,76,0.1)">🏠</div>
+                <div>
+                  <div class="contact-method-title">Property List Karwayein</div>
+                  <div class="contact-method-desc">Form bharein — 24 ghante mein live</div>
+                </div>
+                <span class="contact-method-action">→</span>
+              </div>
+
+              <!-- Patwari -->
+              <div class="contact-method" onclick="window.location.href='patwari.html'">
+                <div class="contact-method-icon" style="background:rgba(8,145,178,0.08)">📜</div>
+                <div>
+                  <div class="contact-method-title">Patwari Service Chahiye</div>
+                  <div class="contact-method-desc">Fard, intiqal, registry — services dekhein</div>
+                </div>
+                <span class="contact-method-action">→</span>
+              </div>
+
+              <!-- Response time info -->
+              <div style="background:var(--cream);border-radius:var(--radius-md);padding:1rem;margin-top:0.5rem;border:1px solid var(--border)">
+                <div style="font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem">⏱️ Response Times:</div>
+                <div style="font-size:0.78rem;color:var(--text-mid);line-height:1.8">
+                  💬 WhatsApp → 1 ghante mein<br>
+                  📞 Call → Foran (9am–9pm)<br>
+                  📧 Message → 24 ghante mein
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ Mini -->
+            <div class="faq-mini">
+              <h3>⚡ Aksar Pooche Jaane Wale Sawal</h3>
+              <div class="faq-mini-item">
+                <div class="faq-mini-q">Listing kitni jaldi live hogi?</div>
+                <div class="faq-mini-a">Form submit karne ke 24 ghante mein hum listing live kar dete hain.</div>
+              </div>
+              <div class="faq-mini-item">
+                <div class="faq-mini-q">Basic listing free hai?</div>
+                <div class="faq-mini-a">Haan, basic listing bilkul free hai. Featured listing Rs. 1,000/mah mein available hai.</div>
+              </div>
+              <div class="faq-mini-item">
+                <div class="faq-mini-q">Guide kaise milegi payment ke baad?</div>
+                <div class="faq-mini-a">EasyPaisa/JazzCash payment ke baad screenshot WhatsApp pe bhejein — hum PDF turant bhej denge.</div>
+              </div>
+              <div class="faq-mini-item">
+                <div class="faq-mini-q">Patwari service ke liye khud jaana padega?</div>
+                <div class="faq-mini-a">Kuch kamon mein physical presence zaroori hoti hai (jaise registry) lekin hum pehle se guide karte hain taake koi confusion na ho.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Message Form -->
+          <div class="reveal reveal-delay-2">
+            <div class="contact-card">
+              <h2 class="heading-md" style="margin-bottom:0.25rem;color:var(--navy)">Message Bhejein</h2>
+              <p style="color:var(--text-mid);font-size:0.85rem;margin-bottom:1.5rem">
+                Form bharein — hum WhatsApp pe reply karein ge
+              </p>
+
+              <form id="contact-form" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="c-name">Aapka Naam *</label>
+                  <input class="form-input" id="c-name" type="text" placeholder="Muhammad Ali" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-phone">WhatsApp Number *</label>
+                  <input class="form-input" id="c-phone" type="tel" placeholder="0300-1234567" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-subject">Kis Baare Mein?</label>
+                  <select class="form-select" id="c-subject">
+                    <option value="property">Property Inquiry</option>
+                    <option value="listing">Property List Karwana Hai</option>
+                    <option value="patwari">Patwari Service Chahiye</option>
+                    <option value="guide">Knowledge Base Guide</option>
+                    <option value="agent">Agent Banna Chahta Hoon</option>
+                    <option value="other">Kuch Aur</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="c-message">Aapka Message *</label>
+                  <textarea class="form-textarea" id="c-message"
+                    placeholder="Apna sawal ya zaroorat batayein..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-whatsapp btn-lg" style="width:100%;justify-content:center">
+                  💬 WhatsApp Pe Message Bhejein
+                </button>
+                <p style="font-size:0.72rem;color:var(--text-light);text-align:center;margin-top:0.75rem">
+                  Button dabane se WhatsApp khulega aapka message ke saath
+                </p>
+              </form>
+            </div>
+
+            <!-- About Box -->
+            <div style="background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius-lg);padding:1.5rem;margin-top:1rem;text-align:center">
+              <div style="font-size:2rem;margin-bottom:0.5rem">🏠</div>
+              <h3 style="font-family:var(--font-heading);font-size:1rem;color:var(--white);margin-bottom:0.5rem">Attock Property Ke Baare Mein</h3>
+              <p style="font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.7">
+                Attock ka pehla dedicated online property portal. Hamaara maqsad Attock ke log ko property khareedne, bechne, aur sarkari kamon mein madad dena hai — aasaan, safe, aur trusted tarike se.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">
+            <div class="nav-logo-icon">🏠</div>
+            <span class="nav-logo-text">Attock <span>Property</span></span>
+          </a>
+          <p>Attock ka trusted online property portal.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Links</div>
+          <ul class="footer-links">
+            <li><a href="properties.html" class="footer-link">Properties</a></li>
+            <li><a href="patwari.html" class="footer-link">Patwari Services</a></li>
+            <li><a href="guides.html" class="footer-link">Knowledge Base</a></li>
+            <li><a href="agents.html" class="footer-link">Agents</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2025 Attock Property.</span></div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Contact methods click
+    document.querySelector('.contact-method[data-wa="contact"]')?.addEventListener('click', function() {
+      const msg = 'Assalam o Alaikum! Main Attock Property se rabta karna chahta hoon.';
+      window.open(`https://wa.me/923000000000?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    document.getElementById('call-btn')?.addEventListener('click', function() {
+      navigator.clipboard.writeText('0300-0000000').then(() => {
+        window.showToast('Number copy ho gaya! 📋');
+      });
+    });
+
+    // Contact form submit
+    document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const phone = document.getElementById('c-phone').value;
+      const subject = document.getElementById('c-subject').value;
+      const message = document.getElementById('c-message').value;
+
+      if (!name || !phone || !message) {
+        window.showToast('Sab zaroori fields bharein!', 'error');
+        return;
+      }
+
+      const subjects = {
+        property: 'Property Inquiry',
+        listing: 'Property List Karwana',
+        patwari: 'Patwari Service',
+        guide: 'Knowledge Base Guide',
+        agent: 'Agent Banna Chahta Hoon',
+        other: 'General'
+      };
+
+      const msg = `Assalam o Alaikum! Main Attock Property website se contact kar raha hoon.
+
+👤 Naam: ${name}
+📞 Phone: ${phone}
+📋 Subject: ${subjects[subject] || subject}
+
+💬 Message:
+${message}`;
+
+      window.open(`https://wa.me/923000000000?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+  </script>
+</body>
+</html>
